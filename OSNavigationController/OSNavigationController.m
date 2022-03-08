@@ -31,7 +31,7 @@
 //
 
 #import "OSNavigationController.h"
-
+@import HouzzFoundation;
 
 #import <Availability.h>
 #if !__has_feature(objc_arc)
@@ -62,7 +62,7 @@
 
 - (instancetype)initWithRootViewController:(UIViewController *)viewController
 {
-    if ((self = [self initWithNibName:NSStringFromClass([OSNavigationController class]) bundle:[NSBundle bundleForClass:[OSNavigationController class]]]))
+    if ((self = [self initWithNibName:NSStringFromClass([OSNavigationController class]) bundle:NSBundle.sharedResources]))
     {
         self.viewControllers = @[viewController];
     }
