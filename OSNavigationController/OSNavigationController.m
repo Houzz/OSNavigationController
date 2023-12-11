@@ -215,8 +215,10 @@
     CGRect frame = _navigationBar.frame;
     if (self.view.window.rootViewController == self || (self.presentingViewController && (self.modalPresentationStyle == UIModalPresentationFullScreen || self.modalPresentationStyle == UIModalPresentationOverFullScreen)))
     {
+#if !TARGET_OS_VISION
         CGSize statusFrame = [UIApplication sharedApplication].statusBarFrame.size;
         frame.size.height = _navigationBarHeight + MIN(statusFrame.height, statusFrame.width);
+#endif
     }
     frame.origin.y = _navigationBarHidden? -frame.size.height: 0;
     _navigationBar.frame = frame;
